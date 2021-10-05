@@ -6,6 +6,7 @@ import 'package:wtiau_blog/Screens/Home/home_screen.dart';
 import 'package:wtiau_blog/Screens/Inbox/inbox_screen.dart';
 import 'package:wtiau_blog/Screens/Profile/profile_screen.dart';
 import 'package:wtiau_blog/components/enums.dart';
+import 'package:wtiau_blog/screens/Profile/home.dart';
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({
@@ -218,9 +219,9 @@ class CustomNavBar extends StatelessWidget {
                           : null,
                       child: GestureDetector(
                         onTap: () {
-                          if (!(route!.settings.name == "/profile"))
+                          if (!(route!.settings.name == "/profile1"))
                             Navigator.pushNamed(
-                                context, ProfileScreen.routeName);
+                                context, ProfileScreen1.routeName);
                         },
                         child: Column(
                           children: [
