@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wtiau_blog/Screens/Home/home_screen.dart';
-import 'package:wtiau_blog/routes.dart';
+import 'package:time_film/routes.dart';
+import 'package:time_film/screens/Home/detail_movie_page.dart';
+import 'package:time_film/screens/Home/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,17 +13,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'وبلاگ تهران غرب',
+      title: 'فیلم تایم',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.white,
-        fontFamily: "Sans serif",
+        fontFamily: "Yekan",
         primarySwatch: colorCustom,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
-      initialRoute: HomeScreen.routeName,
+      initialRoute: MoviesPage.routeName,
       routes: routes,
     );
   }
