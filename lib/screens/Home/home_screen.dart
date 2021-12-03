@@ -1,7 +1,10 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:time_film/model/movie.dart';
+import 'package:time_film/services/movie_services.dart';
 
 class MoviesPage extends StatefulWidget {
   static String routeName = "/home";
@@ -13,34 +16,44 @@ class MoviesPage extends StatefulWidget {
 }
 
 class _MoviesPageState extends State<MoviesPage> {
+  final List<Movie> _movies = [];
+
   CarouselController _carouselController = new CarouselController();
   int _current = 0;
 
-  List<dynamic> _movies = [
-    {
-      'title': 'Black Widow',
-      'image':
-          'https://www.moviepostersgallery.com/wp-content/uploads/2020/08/Blackwidow2.jpg',
-      'description': 'Black Widow'
-    },
-    {
-      'title': 'The Suicide Squad',
-      'image':
-          'https://static.wikia.nocookie.net/headhuntersholosuite/images/7/77/Suicide_Squad%2C_The.jpg/revision/latest?cb=20210807172814',
-      'description': 'The Suicide Squad'
-    },
-    {
-      'title': 'تل ماسه',
-      'image':
-          'https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg',
-      'description': 'تل ماسه'
-    }
-  ];
+  var dbFuture = null;
 
   @override
   void initState() {
+    _getPosts();
     super.initState();
   }
+
+  _getPosts({String page: "http://192.168.1.6:8000/movie/"}) async {
+    var response = await MovieService.getPost(page);
+    _movies.addAll(response);
+  }
+
+  // List<dynamic> _movies = [
+  //   {
+  //     'title': 'Black Widow',
+  //     'image':
+  //         'https://www.moviepostersgallery.com/wp-content/uploads/2020/08/Blackwidow2.jpg',
+  //     'description': 'Black Widow'
+  //   },
+  //   {
+  //     'title': 'The Suicide Squad',
+  //     'image':
+  //         'https://static.wikia.nocookie.net/headhuntersholosuite/images/7/77/Suicide_Squad%2C_The.jpg/revision/latest?cb=20210807172814',
+  //     'description': 'The Suicide Squad'
+  //   },
+  //   {
+  //     'title': 'تل ماسه',
+  //     'image':
+  //         'https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg',
+  //     'description': 'تل ماسه'
+  //   }
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +62,14 @@ class _MoviesPageState extends State<MoviesPage> {
         height: MediaQuery.of(context).size.height,
         child: Stack(
           children: [
-            Image.network(_movies[_current]['image'], fit: BoxFit.cover),
+            FutureBuilder<dynamic>(
+              future: _getPosts(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) =>
+                  Image.network(_movies[0].image, fit: BoxFit.cover),
+            ),
+
+            // Image.network(_movies[0].image, fit: BoxFit.cover),
+
             Positioned(
               top: 0,
               left: 0,
@@ -91,7 +111,9 @@ class _MoviesPageState extends State<MoviesPage> {
                 items: _movies.map((movie) {
                   return Builder(
                     builder: (BuildContext context) {
-                      return Container(
+                      return GestureDetector(
+                        onTap: ,
+                        child: Container(
                           width: MediaQuery.of(context).size.width,
                           margin: EdgeInsets.symmetric(horizontal: 5.0),
                           decoration: BoxDecoration(
@@ -117,12 +139,12 @@ class _MoviesPageState extends State<MoviesPage> {
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: Image.network(movie['image'],
+                                  child: Image.network(movie.image,
                                       fit: BoxFit.cover),
                                 ),
                                 SizedBox(height: 20),
                                 Text(
-                                  movie['title'],
+                                  movie.title,
                                   style: TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.bold),
@@ -131,7 +153,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                 SizedBox(height: 20),
                                 Container(
                                   child: Text(
-                                    movie['description'],
+                                    movie.genre,
                                     style: TextStyle(
                                         fontSize: 14.0,
                                         color: Colors.grey.shade600),
@@ -161,7 +183,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                               ),
                                               SizedBox(width: 5),
                                               Text(
-                                                '4.5',
+                                                movie.rate.toString(),
                                                 style: TextStyle(
                                                     fontSize: 14.0,
                                                     color:
@@ -180,7 +202,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                               ),
                                               SizedBox(width: 5),
                                               Text(
-                                                '2h',
+                                                movie.time.toString(),
                                                 style: TextStyle(
                                                     fontSize: 14.0,
                                                     color:
@@ -189,36 +211,36 @@ class _MoviesPageState extends State<MoviesPage> {
                                             ],
                                           ),
                                         ),
-                                        Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.2,
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.play_circle_filled,
-                                                color: Colors.grey.shade600,
-                                                size: 20,
-                                              ),
-                                              SizedBox(width: 5),
-                                              Text(
-                                                'Watch',
-                                                style: TextStyle(
-                                                    fontSize: 14.0,
-                                                    color:
-                                                        Colors.grey.shade600),
-                                              )
-                                            ],
-                                          ),
-                                        ),
+                                        // Container(
+                                        //   width: MediaQuery.of(context)
+                                        //           .size
+                                        //           .width *
+                                        //       0.2,
+                                        //   child: Row(
+                                        //     children: [
+                                        //       Icon(
+                                        //         Icons.play_circle_filled,
+                                        //         color: Colors.grey.shade600,
+                                        //         size: 20,
+                                        //       ),
+                                        //       SizedBox(width: 5),
+                                        //       Text(
+                                        //         'Watch',
+                                        //         style: TextStyle(
+                                        //             fontSize: 14.0,
+                                        //             color:
+                                        //                 Colors.grey.shade600),
+                                        //       )
+                                        //     ],
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   ),
                                 ),
                               ],
                             ),
-                          ));
+                          )));
                     },
                   );
                 }).toList(),

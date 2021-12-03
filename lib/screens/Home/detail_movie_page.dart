@@ -45,7 +45,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: CachedNetworkImageProvider(widget.movie.imgPoster),
+                  image: CachedNetworkImageProvider(widget.movie.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -79,7 +79,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        "${widget.movie.year}, ${widget.movie.genre}, ${widget.movie.minute} دقیقه",
+                        "${widget.movie.year_make}, ${widget.movie.genre}, ${widget.movie.time} دقیقه",
                         style: TextStyle(
                           color: Color(0xFFfafafa).withOpacity(0.7),
                           fontSize: 17,
@@ -90,7 +90,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                       Row(
                         children: [
                           Text(
-                            widget.movie.rating.toString(),
+                            widget.movie.rate.toString(),
                             style: TextStyle(
                               color: Colors.yellow,
                               fontSize: 17,
@@ -102,7 +102,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                             5,
                             (index) => Icon(
                               Icons.star,
-                              color: (index < (widget.movie.rating / 2).floor())
+                              color: (index < (widget.movie.rate / 2).floor())
                                   ? Colors.yellow
                                   : Colors.white,
                             ),
@@ -129,7 +129,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
             Padding(
               padding: const EdgeInsets.only(right: 15, top: 10, left: 10),
               child: Text(
-                widget.movie.overview,
+                widget.movie.description,
                 style: TextStyle(
                   color: Color(0xFFfafafa).withOpacity(0.7),
                   fontSize: 17,
@@ -137,59 +137,59 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                 ),
               ),
             ),
-            if (widget.movie.casts.length > 0) ...[
-              Padding(
-                padding: const EdgeInsets.only(right: 15, top: 15),
-                child: Text(
-                  "بازیگران",
-                  style: TextStyle(
-                    color: Color(0xFFfafafa).withOpacity(0.7),
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Yekan",
-                  ),
-                ),
-              ),
-              Container(
-                height: 100,
-                padding: EdgeInsets.only(right: 15, top: 10, left: 10),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: widget.movie.casts.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(left: 15),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 70,
-                            width: 70,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: CachedNetworkImageProvider(
-                                  widget.movie.casts[index].image,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            widget.movie.casts[index].name,
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFFfafafa).withOpacity(0.7),
-                              fontFamily: "Yekan",
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              )
-            ]
+            // if (widget.movie.actors.length > 0) ...[
+            //   Padding(
+            //     padding: const EdgeInsets.only(right: 15, top: 15),
+            //     child: Text(
+            //       "بازیگران",
+            //       style: TextStyle(
+            //         color: Color(0xFFfafafa).withOpacity(0.7),
+            //         fontSize: 22,
+            //         fontWeight: FontWeight.bold,
+            //         fontFamily: "Yekan",
+            //       ),
+            //     ),
+            //   ),
+            //   Container(
+            //     height: 100,
+            //     padding: EdgeInsets.only(right: 15, top: 10, left: 10),
+            //     child: ListView.builder(
+            //       scrollDirection: Axis.horizontal,
+            //       itemCount: widget.movie.actors.length,
+            //       itemBuilder: (context, index) {
+            //         return Container(
+            //           margin: EdgeInsets.only(left: 15),
+            //           child: Column(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Container(
+            //                 height: 70,
+            //                 width: 70,
+            //                 decoration: BoxDecoration(
+            //                   shape: BoxShape.circle,
+            //                   image: DecorationImage(
+            //                     fit: BoxFit.cover,
+            //                     image: CachedNetworkImageProvider(
+            //                       widget.movie.actors[index].image,
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //               Text(
+            //                 widget.movie.actors[index].name,
+            //                 style: TextStyle(
+            //                   fontSize: 12,
+            //                   color: Color(0xFFfafafa).withOpacity(0.7),
+            //                   fontFamily: "Yekan",
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //         );
+            //       },
+            //     ),
+            //   )
+            // ]
           ],
         ),
       ),
