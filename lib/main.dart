@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:time_film/routes.dart';
-import 'package:time_film/screens/Home/detail_movie_page.dart';
-import 'package:time_film/screens/Home/home_screen.dart';
+import 'package:time_film/screens/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
-      initialRoute: MoviesPage.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: routes,
     );
   }

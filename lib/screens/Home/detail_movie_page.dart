@@ -20,7 +20,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
         elevation: 0,
         title: Text(
           widget.movie.title,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color(0xFFfafafa),
             fontSize: 22,
             fontWeight: FontWeight.bold,
@@ -29,12 +29,12 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.bookmark_border),
+            icon: const Icon(Icons.bookmark_border),
             onPressed: () {},
           ),
         ],
       ),
-      backgroundColor: Color(0xFF1a1a2c),
+      backgroundColor: const Color(0xFF1a1a2c),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Column(
@@ -45,7 +45,9 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: CachedNetworkImageProvider(widget.movie.image),
+                  image: CachedNetworkImageProvider(
+                    widget.movie.image,
+                  ),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -53,9 +55,9 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xFF1a1a2c),
-                      Color(0xFF1a1a2c).withOpacity(0.8),
-                      Color(0xFF1a1a2c).withOpacity(0.5),
+                      const Color(0xFF1a1a2c),
+                      const Color(0xFF1a1a2c).withOpacity(0.8),
+                      const Color(0xFF1a1a2c).withOpacity(0.5),
                       Colors.transparent,
                     ],
                     begin: Alignment.bottomCenter,
@@ -70,34 +72,34 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                     children: [
                       Text(
                         widget.movie.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color(0xFFfafafa),
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Yekan",
                         ),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
-                        "${widget.movie.year_make}, ${widget.movie.genre}, ${widget.movie.time} دقیقه",
+                        "${widget.movie.year_make}، ${widget.movie.genre}، ${widget.movie.time} دقیقه",
                         style: TextStyle(
-                          color: Color(0xFFfafafa).withOpacity(0.7),
+                          color: const Color(0xFFfafafa).withOpacity(0.7),
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Row(
                         children: [
                           Text(
                             widget.movie.rate.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.yellow,
                               fontSize: 17,
                               fontFamily: "Yekan",
                             ),
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           ...List.generate(
                             5,
                             (index) => Icon(
@@ -119,7 +121,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
               child: Text(
                 "داستان فیلم",
                 style: TextStyle(
-                  color: Color(0xFFfafafa).withOpacity(0.7),
+                  color: const Color(0xFFfafafa).withOpacity(0.7),
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   fontFamily: "Yekan",
@@ -131,65 +133,65 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
               child: Text(
                 widget.movie.description,
                 style: TextStyle(
-                  color: Color(0xFFfafafa).withOpacity(0.7),
+                  color: const Color(0xFFfafafa).withOpacity(0.7),
                   fontSize: 17,
                   fontFamily: "Yekan",
                 ),
               ),
             ),
-            // if (widget.movie.actors.length > 0) ...[
-            //   Padding(
-            //     padding: const EdgeInsets.only(right: 15, top: 15),
-            //     child: Text(
-            //       "بازیگران",
-            //       style: TextStyle(
-            //         color: Color(0xFFfafafa).withOpacity(0.7),
-            //         fontSize: 22,
-            //         fontWeight: FontWeight.bold,
-            //         fontFamily: "Yekan",
-            //       ),
-            //     ),
-            //   ),
-            //   Container(
-            //     height: 100,
-            //     padding: EdgeInsets.only(right: 15, top: 10, left: 10),
-            //     child: ListView.builder(
-            //       scrollDirection: Axis.horizontal,
-            //       itemCount: widget.movie.actors.length,
-            //       itemBuilder: (context, index) {
-            //         return Container(
-            //           margin: EdgeInsets.only(left: 15),
-            //           child: Column(
-            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //             children: [
-            //               Container(
-            //                 height: 70,
-            //                 width: 70,
-            //                 decoration: BoxDecoration(
-            //                   shape: BoxShape.circle,
-            //                   image: DecorationImage(
-            //                     fit: BoxFit.cover,
-            //                     image: CachedNetworkImageProvider(
-            //                       widget.movie.actors[index].image,
-            //                     ),
-            //                   ),
-            //                 ),
-            //               ),
-            //               Text(
-            //                 widget.movie.actors[index].name,
-            //                 style: TextStyle(
-            //                   fontSize: 12,
-            //                   color: Color(0xFFfafafa).withOpacity(0.7),
-            //                   fontFamily: "Yekan",
-            //                 ),
-            //               )
-            //             ],
-            //           ),
-            //         );
-            //       },
-            //     ),
-            //   )
-            // ]
+            if (widget.movie.actors.length > 0) ...[
+              Padding(
+                padding: const EdgeInsets.only(right: 15, top: 15),
+                child: Text(
+                  "بازیگران",
+                  style: TextStyle(
+                    color: const Color(0xFFfafafa).withOpacity(0.7),
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Yekan",
+                  ),
+                ),
+              ),
+              Container(
+                height: 100,
+                padding: const EdgeInsets.only(right: 15, top: 10, left: 10),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: widget.movie.actors.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.only(left: 15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: CachedNetworkImageProvider(
+                                  widget.movie.actors[index]['image'],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            widget.movie.actors[index]['name'],
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: const Color(0xFFfafafa).withOpacity(0.7),
+                              fontFamily: "Yekan",
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              )
+            ]
           ],
         ),
       ),

@@ -7,7 +7,7 @@ class Movie {
   late double rate;
   late int year_make;
   late int time;
-  // final List<Cast> actors;
+  late List<dynamic> actors;
 
   // Movie({
   //   required this.id,
@@ -30,24 +30,32 @@ class Movie {
     rate = json['rate'];
     year_make = json['year_make'];
     time = json['time'];
-    // actors: json['actors'],
+    actors = json['actors'];
   }
 }
 
-class Cast {
-  final int id;
-  final String name;
-  final String image;
-  final int age;
-  final String description;
+// class Cast {
+//   late int id;
+//   late String name;
+//   late String image;
+//   late int age;
+//   late String description;
 
-  Cast(
-      {required this.id,
-      required this.name,
-      required this.image,
-      required this.age,
-      required this.description});
-}
+//   Cast(
+//       {required this.id,
+//       required this.name,
+//       required this.image,
+//       required this.age,
+//       required this.description});
+
+//   Cast.fromJson(Map<String, dynamic> json) {
+//     id = json['id'];
+//     name = json['name'];
+//     image = json['image'];
+//     description = json['description'];
+//     age = json['age'];
+//   }
+// }
 
 // var popularMovie = [
 //   Movie(

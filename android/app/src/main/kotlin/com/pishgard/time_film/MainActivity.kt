@@ -1,4 +1,4 @@
-package com.example.time_film
+package com.pishgard.timefilm
 
 import io.flutter.embedding.android.FlutterActivity
 

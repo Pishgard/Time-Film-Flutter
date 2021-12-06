@@ -4,13 +4,15 @@
 import 'package:flutter/material.dart';
 import 'package:time_film/model/movie.dart';
 import 'package:time_film/screens/Home/detail_movie_page.dart';
-import 'package:time_film/screens/Home/home_screen.dart';
+import 'package:time_film/screens/Home/movies.dart';
+import 'package:time_film/screens/splash_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   //SplashPage.routeName: (context) => SplashPage(),
-  // SplashScreen.routeName: (context) => Directionality(textDirection: TextDirection.rtl, child: SplashScreen(title: 'hi',)),
-  MoviesPage.routeName: (context) =>
-      Directionality(textDirection: TextDirection.rtl, child: MoviesPage()),
+  SplashScreen.routeName: (context) => const Directionality(
+      textDirection: TextDirection.rtl, child: SplashScreen()),
+  // MoviesPage.routeName: (context) => const Directionality(
+  //     textDirection: TextDirection.rtl, child: MoviesPage()),
   // DetailMoviePage.routeName: (context) => Directionality(
   //     textDirection: TextDirection.rtl,
   //     child: DetailMoviePage(
