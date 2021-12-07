@@ -1,6 +1,6 @@
 # Time Film
 
-A movie suggestion aplication build with django-rest & flutter.
+A movie suggestion application build with django-rest & flutter.
 
 BackEnd this Project:
 https://github.com/Pishgard/Time-Film-Django
