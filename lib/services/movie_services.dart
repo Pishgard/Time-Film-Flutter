@@ -6,7 +6,7 @@ class MovieService {
   static Future getPost(String page) async {
     final response = await http.get(Uri.parse(page));
     if (response.statusCode == 200) {
-      String source = Utf8Decoder().convert(response.bodyBytes);
+      String source = const Utf8Decoder().convert(response.bodyBytes);
       // Convert to your class instance...
       var jsonResponse = json.decode(source);
 

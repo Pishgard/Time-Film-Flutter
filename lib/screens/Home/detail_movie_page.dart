@@ -65,7 +65,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.only(right: 15, bottom: 20),
+                  padding: const EdgeInsets.only(right: 15, bottom: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,

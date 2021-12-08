@@ -33,7 +33,6 @@ class _MoviesPageState extends State<MoviesPage> {
                   fit: BoxFit.cover),
               fit: BoxFit.cover,
             ),
-            // Image.network(widget.movies[_current].image, fit: BoxFit.cover),
             Positioned(
               top: 0,
               left: 0,
@@ -122,8 +121,6 @@ class _MoviesPageState extends State<MoviesPage> {
                                                 fit: BoxFit.cover),
                                         fit: BoxFit.cover,
                                       ),
-                                      //  Image.network(movie.image,
-                                      //     fit: BoxFit.cover),
                                     ),
                                     const SizedBox(height: 20),
                                     Text(
