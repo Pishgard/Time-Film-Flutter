@@ -1,2 +1,0 @@
-# jd71sr05bbnqfska05wc3
-# q948i31pi8qcz9kn6ft8a12r5mv1ia3brysk5n

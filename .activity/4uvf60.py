@@ -1,3 +1,0 @@
-# c0gse5sp3q4ly11op
-# jpocbcpmtx6a4oowprenw6osz85pgnu8s8jgd19
-# i7g6aowtbgmv7kh0kw0ntt5z86anrn2kxp03ja

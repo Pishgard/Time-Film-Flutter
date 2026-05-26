@@ -1,3 +1,0 @@
-# na2w50o53r85zlc7nefhhuj0j
-# yl1d3kp2k0xnwmq0x6zkjllz
-# ychrnl48bytms9jhkhfqqbcvtytg4u6ly

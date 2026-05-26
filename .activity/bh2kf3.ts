@@ -1,5 +1,0 @@
-# dpn6tyfqsmak3y3uazh
-# tz3qmrjv8v2yao9jp16legeeznroosy49n
-# ietvs8sfa6lpph947q17qix8
-# rfad5t7ai6mgf000mkemeyuhunicb6t5
-# 38r0qtwhwzhvaj8z65pocvxp8ltzl

@@ -1,5 +1,0 @@
-# wl7traxbk81lwikwtb4s33k6erl45ao
-# sjkg8c3tx9bn1cll02y19
-# ggim8n2x1j33ojnuxr
-# npicak1xjaktnj47bzg49myczcqhomytx
-# cgp85i4j78a9wa685r8nhm7zj6pnfam6y
